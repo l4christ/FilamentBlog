@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateTextWidget extends CreateRecord
 {
     protected static string $resource = TextWidgetResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }
