@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout meta-title="About Emmanuel's Blog" meta-description="About Emmanuel's Blog">
     <!-- Post Section -->
     <section class="w-full flex flex-col items-center px-3">
 
