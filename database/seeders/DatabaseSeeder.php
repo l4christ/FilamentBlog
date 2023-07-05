@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,8 +14,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Post::factory(50)->create();
+        // \App\Models\Post::factory(50)->create();
+        $adminUser = User::factory()->create([
+            'email' => 'admin@test.com',
+            'name' => 'Admin',
+            'password' => bcrypt('password')
+        ]);
 
+        $adminRole = Role::create([
+            'name' => 'admin'
+        ]);
+        $adminUser->assignRole($adminRole);
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
