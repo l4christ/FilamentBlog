@@ -4,18 +4,38 @@
 
 <x-app-layout meta-description="The Emmanuel's personal Blog">
     <!-- Posts Section -->
-    <section class="w-full md:w-2/3 flex flex-col items-center px-3">
+    <div class="container max-w-3xl mx-auto py-6">
 
-        @foreach ($posts as $post)
-            <x-post-item :post="$post"></x-post-item>
-        @endforeach
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {{-- Latest Posts --}}
+            <div class="col-span-2">
+                <h2 class="text-lg sm:text-xl font-bold text-blue-500 uppercase pb-1 border-b-2 border-blue-500 mb-3">
+                    <x-post-item :post="$latestPost" />
+                </h2>
+            </div>
 
-       
-       
-        <!-- Pagination -->
-        {{ $posts->onEachSide(1)->links() }}
+            {{-- Popular 3 post --}}
+            <div>
+                <h2 class="text-lg sm:text-xl font-bold text-blue-500 uppercase pb-1 border-b-2 border-blue-500 mb-3">
+                    Popular Posts
+                </h2>
+            </div>
+        </div>
 
-    </section>
-    <x-sidebar />
+        {{-- Recommended Post --}}
+        <div>
+            <h2 class="text-lg sm:text-xl font-bold text-blue-500 uppercase pb-1 border-b-2 border-blue-500 mb-3">
+                Recommended Post
+            </h2>
+        </div>
+
+        {{-- Latest Category --}}
+        <div>
+            <h2 class="text-lg sm:text-xl font-bold text-blue-500 uppercase pb-1 border-b-2 border-blue-500 mb-3">
+                Recent Categories
+            </h2>
+        </div>
+
+    </div>
     
 </x-app-layout>
