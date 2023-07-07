@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('post_views', function (Blueprint $table) {
             $table->id();
+            $table->string('ip_address', 55);
+            $table->string('user_agent', 255);
+            $table->string('post_id')->constrained();
+            $table->string('user_id')->nullable()->constrained();
             $table->timestamps();
         });
     }
